@@ -69,7 +69,7 @@ export const deleteOneSubreddit = (id) => async (dispatch) => {
   }
 }
 
-const initialState = {subreddits: [], currentSubreddit: {}};
+const initialState = {};
 
 export default function reducer(state = initialState, action) {
   let newState;
