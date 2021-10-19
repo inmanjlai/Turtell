@@ -2,7 +2,7 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { useEffect } from 'react'
-import { deleteOneSubreddit, getAllSubreddits, getOneSubreddit } from '../../store/subreddits'
+import { deleteOneSubreddit, getAllSubreddits } from '../../store/subreddits'
 
 const Subreddits = () => {
 
@@ -20,11 +20,7 @@ const Subreddits = () => {
             <ul>
                 {allSubreddits?.map((subreddit) => <li key={subreddit.id}>{subreddit.tag} {user.id === subreddit.owner_id && (
                     <div>
-                        <button onClick={() => {
-                            dispatch(getOneSubreddit(subreddit.id))
-                            history.push(`/subreddits/${subreddit.id}/edit`)
-                        }
-                        }>Edit</button>
+                        <button onClick={() => history.push(`/subreddits/${subreddit.id}/edit`)}>Edit</button>
                         <button onClick={() => dispatch(deleteOneSubreddit(subreddit.id))}>Delete</button>
                     </div>
                 )}</li>)}

@@ -77,6 +77,7 @@ export default function reducer(state = initialState, action) {
     case LOAD:
       newState = {...state}
       newState.subreddits = action.payload.subreddits
+      newState.currentSubreddit = {}
       return newState
     case LOAD_ONE_SUBREDDIT:
       newState = {...state}
