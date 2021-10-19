@@ -18,7 +18,7 @@ export const getAllSubreddits = () => async (dispatch) => {
 
   if (response.ok) {
     const data = await response.json();  
-    dispatch(load(data));
+    return dispatch(load(data));
   }
 }
 
@@ -27,7 +27,7 @@ export const getOneSubreddit = (id) => async (dispatch) => {
 
   if (response.ok) {
     const data = await response.json();  
-    dispatch(loadOneSubreddit(data));
+    return dispatch(loadOneSubreddit(data));
   }
 }
 
@@ -40,7 +40,7 @@ export const createSubreddit = (subreddit) => async (dispatch) => {
 
   if (response.ok) {
     const data = await response.json();  
-    dispatch(load(data));
+    return dispatch(load(data));
   }
 }
 
@@ -53,7 +53,7 @@ export const editOneSubreddit = (id, subreddit) => async (dispatch) => {
 
   if (response.ok) {
     const data = await response.json();  
-    dispatch(load(data));
+    return dispatch(load(data));
   }
 }
 
@@ -65,7 +65,7 @@ export const deleteOneSubreddit = (id) => async (dispatch) => {
 
   if (response.ok) {
     const data = await response.json();  
-    dispatch(load(data));
+    return dispatch(load(data));
   }
 }
 
