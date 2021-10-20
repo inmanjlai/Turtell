@@ -3,9 +3,9 @@ from app.models import db, Subreddit
 
 # Adds a demo user, you can add other users here if you want
 def seed_subreddits():
-    edh = Subreddit(name='Elder Dragon Highlander', tag='EDH', description="A friendly community based around the Commander format for Magic: the Gathering. Join us!")
-    WoW = Subreddit(name='World of Warcraft', tag='WoW', description="A subreddit dedicated to World of Warcraft (retail), the most popular MMO ever made.")
-    tarkov = Subreddit(name='Escape From Tarkov', tag='tarkov', description="A community based around Escape from Tarkov, we welcome Rats and Chads alike.")
+    edh = Subreddit(name='Elder Dragon Highlander', tag='EDH', description="A friendly community based around the Commander format for Magic: the Gathering. Join us!", owner_id=1)
+    WoW = Subreddit(name='World of Warcraft', tag='WoW', description="A subreddit dedicated to World of Warcraft (retail), the most popular MMO ever made.", owner_id=2)
+    tarkov = Subreddit(name='Escape From Tarkov', tag='tarkov', description="A community based around Escape from Tarkov, we welcome Rats and Chads alike.", owner_id=3)
 
     db.session.add(edh)
     db.session.add(WoW)
