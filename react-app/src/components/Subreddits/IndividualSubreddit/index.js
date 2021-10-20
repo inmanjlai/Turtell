@@ -4,6 +4,7 @@ import { useHistory, useParams } from "react-router";
 import { followOneSubreddit, getAllSubredditsIFollow, unfollowOneSubreddit } from "../../../store/followed_subreddits";
 import { getAllSubredditsPosts } from "../../../store/posts";
 import { deleteOneSubreddit, getOneSubreddit } from "../../../store/subreddits";
+import Posts from "../../Posts";
 
 const IndividualSubreddit = () => {
 
@@ -37,18 +38,22 @@ const IndividualSubreddit = () => {
                         history.push('/')
                     }}>Delete</button>
                 </div> ) }
-            {followed_subreddits?.includes(currentSubreddit?.id) ? <button onClick={() => dispatch(unfollowOneSubreddit(currentSubreddit.id, user.id))}>Leave</button> : <button onClick={() => dispatch(followOneSubreddit(currentSubreddit.id, user.id))}>Join</button> }
+            {followed_subreddits?.includes(currentSubreddit?.id) ? 
+                (
+                    <div>
+                        <button onClick={() => dispatch(unfollowOneSubreddit(currentSubreddit.id, user.id))}>Leave</button>
+                        <button onClick={() => history.push('/subreddit/post/new')}>Create a Post</button>
+                    </div>
+                )
+                :(
+                    <button onClick={() => dispatch(followOneSubreddit(currentSubreddit.id, user.id))}>Join</button>
+                )}
 
-            <div>
-                    {allPosts.map((post) => {
-                        return(
-                            <div key={post}>
-                                <h2 >{posts[post].title}</h2>
-                                <p>{posts[post].content}</p>
-                            </div>
-                        )
-                    } )}
-            </div>
+                {allPosts.map((post) => {
+                    return(
+                            <Posts post={post} key={post}/>
+                    )
+                })}
         </div>
     )
 }

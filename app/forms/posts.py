@@ -6,11 +6,11 @@ class CreatePost(FlaskForm):
     user_id = StringField('user id', validators=[DataRequired()])
     title = StringField('title', validators=[DataRequired()])
     content = StringField('content', validators=[DataRequired()])
-    subreddit_it = IntegerField('subreddit id', validators=[DataRequired()])
+    subreddit_id = IntegerField('subreddit id', validators=[DataRequired()])
 
 class EditPost(FlaskForm):
     user_id = StringField('user id', validators=[DataRequired()])
     title = StringField('title', validators=[DataRequired()])
     content = StringField('content', validators=[DataRequired()])
-    subreddit_it = IntegerField('subreddit id', validators=[DataRequired()])
+    subreddit_id = IntegerField('subreddit id', validators=[DataRequired()])
 
