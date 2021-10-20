@@ -2,10 +2,12 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import session from './session'
 import subreddits from './subreddits'
+import followed_subreddits from './followed_subreddits'
 
 const rootReducer = combineReducers({
   session,
-  subreddits
+  subreddits,
+  followed_subreddits
 });
 
 

@@ -11,6 +11,7 @@ import { authenticate } from './store/session';
 import Subreddits from './components/Subreddits';
 import CreateSubreddit from './components/Subreddits/CreateSubreddit';
 import EditSubreddit from './components/Subreddits/EditSubreddit';
+import IndividualSubreddit from './components/Subreddits/IndividualSubreddit';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -51,6 +52,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/subreddits/:id/edit' exact={true} >
           <EditSubreddit />
+        </ProtectedRoute>
+        <ProtectedRoute path='/subreddits/:id' exact={true} >
+          <IndividualSubreddit />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

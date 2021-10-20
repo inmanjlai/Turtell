@@ -1,8 +1,8 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useHistory } from 'react-router-dom'
+import { NavLink, useHistory } from 'react-router-dom'
 import { useEffect } from 'react'
-import { deleteOneSubreddit, getAllSubreddits } from '../../store/subreddits'
+import { getAllSubreddits } from '../../store/subreddits'
 
 const Subreddits = () => {
 
@@ -17,13 +17,8 @@ const Subreddits = () => {
 
     return (
         <div>
-            <ul>
-                {allSubreddits?.map((subreddit) => <li key={subreddit.id}>{subreddit.tag} {user.id === subreddit.owner_id && (
-                    <div>
-                        <button onClick={() => history.push(`/subreddits/${subreddit.id}/edit`)}>Edit</button>
-                        <button onClick={() => dispatch(deleteOneSubreddit(subreddit.id))}>Delete</button>
-                    </div>
-                )}</li>)}
+            <ul className='sub_list'>
+                {allSubreddits?.map((subreddit) => <li className='sub_tag'><NavLink to={`/subreddits/${subreddit.id}`}>{subreddit?.tag}</NavLink></li> )}
             </ul>
 
             <button onClick={() => history.push("/subreddits/new")}>Create New Subreddit</button>

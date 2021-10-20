@@ -1,4 +1,5 @@
 from .db import db
+from app.models import members
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 
@@ -11,7 +12,7 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
 
-    subreddits = db.relationship("Subreddit", back_populates="user")
+    subreddits = db.relationship("Subreddit", secondary=members, back_populates="members")
 
     @property
     def password(self):
@@ -28,5 +29,12 @@ class User(db.Model, UserMixin):
         return {
             'id': self.id,
             'username': self.username,
-            'email': self.email
+            'email': self.email,
+        }
+    
+    def to_dict_association(self):
+        return {
+            'id': self.id,
+            'username': self.username,
+            'email': self.email,
         }
