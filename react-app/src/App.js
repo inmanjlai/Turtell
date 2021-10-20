@@ -12,6 +12,9 @@ import Subreddits from './components/Subreddits';
 import CreateSubreddit from './components/Subreddits/CreateSubreddit';
 import EditSubreddit from './components/Subreddits/EditSubreddit';
 import IndividualSubreddit from './components/Subreddits/IndividualSubreddit';
+import CreatePost from './components/Posts/CreatePost';
+import IndividualPost from './components/Posts/IndividualPost';
+import EditPost from './components/Posts/EditPost';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -44,17 +47,26 @@ function App() {
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
-        <ProtectedRoute path='/' exact={true} >
+        <Route path='/' exact={true} >
           <Subreddits />
-        </ProtectedRoute>
+        </Route>
         <ProtectedRoute path='/subreddits/new' exact={true} >
           <CreateSubreddit />
         </ProtectedRoute>
         <ProtectedRoute path='/subreddits/:id/edit' exact={true} >
           <EditSubreddit />
         </ProtectedRoute>
-        <ProtectedRoute path='/subreddits/:id' exact={true} >
+        <Route path='/subreddits/:id' exact={true} >
           <IndividualSubreddit />
+        </Route>
+        <Route path='/posts/:id' exact={true} >
+          <IndividualPost />
+        </Route>
+        <ProtectedRoute path='/post/:id/edit' exact={true} >
+          <EditPost />
+        </ProtectedRoute>
+        <ProtectedRoute path='/subreddit/post/new' exact={true} >
+          <CreatePost />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>
