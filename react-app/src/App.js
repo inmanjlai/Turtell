@@ -15,6 +15,7 @@ import IndividualSubreddit from './components/Subreddits/IndividualSubreddit';
 import CreatePost from './components/Posts/CreatePost';
 import IndividualPost from './components/Posts/IndividualPost';
 import EditPost from './components/Posts/EditPost';
+import BackButton from './components/NavBar/BackButton';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -34,6 +35,7 @@ function App() {
   return (
     <BrowserRouter>
       <NavBar />
+      <BackButton />
       <Switch>
         <Route path='/login' exact={true}>
           <LoginForm />

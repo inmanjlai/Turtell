@@ -27,35 +27,37 @@ const CreateSubreddit = () => {
     }
 
     return (
-        <div>
             <form onSubmit={handleSubmit}>
-                <div>
-                    <label>Subreddit Name</label>
-                    <input type="text" 
-                        onChange={(e) => setName(e.target.value)}
-                        value={name} 
-                    />
-                </div>
+                <h2>Create Subreddit</h2>
+                <br/>
+                <div className="form-container">
+                    <div>
+                        <input type="text" 
+                            onChange={(e) => setName(e.target.value)}
+                            value={name} 
+                            placeholder='Title'
+                        />
+                    </div>
 
-                <div>
-                    <label>Subreddit Tag</label>
-                    <input type="text" 
-                        onChange={(e) => setTag(e.target.value)}
-                        value={tag} 
-                    />
-                </div>
+                    <div>
+                        <input type="text" 
+                            onChange={(e) => setTag(e.target.value)}
+                            value={tag} 
+                            placeholder='Choose a unique tag for your community'
+                        />
+                    </div>
 
-                <div>
-                    <label>Subreddit Description</label>
-                    <textarea 
-                        onChange={(e) => setDescription(e.target.value)}
-                        value={description} 
-                    />
+                    <div>
+                        <textarea 
+                            onChange={(e) => setDescription(e.target.value)}
+                            value={description} 
+                            placeholder='Describe your community'
+                        />
+                    </div>
                 </div>
 
                 <button>Submit</button>
             </form>
-        </div>
     )
 }
 

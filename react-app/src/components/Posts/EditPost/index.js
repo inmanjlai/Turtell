@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { editPost } from '../../../store/posts'
+import '../forms.css'
 
 const EditPost = () => {
 
@@ -28,27 +29,31 @@ const EditPost = () => {
     }
 
     return (
-        <div>
             <form onSubmit={handleSubmit}>
-                <div>
-                    <label>Post Title</label>
-                    <input type="text" 
-                        onChange={(e) => setTitle(e.target.value)}
-                        value={title} 
-                    />
-                </div>
+                <h2>Edit Post</h2>
+                <br/>
+                <div className="form-container">
+                    <div>
+                        {/* <label>Post Title</label> */}
+                        <input type="text" 
+                            onChange={(e) => setTitle(e.target.value)}
+                            value={title} 
+                            placeholder='Title'
+                        />
+                    </div>
 
-                <div>
-                    <label>Post Body</label>
-                    <textarea
-                        onChange={(e) => setContent(e.target.value)}
-                        value={content} 
-                    />
+                    <div>
+                        {/* <label>Post Body</label> */}
+                        <textarea
+                            onChange={(e) => setContent(e.target.value)}
+                            value={content} 
+                            placeholder='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua....'
+                        />
+                    </div>
                 </div>
 
                 <button>Submit</button>
             </form>
-        </div>
     )
 }
 

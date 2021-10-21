@@ -3,10 +3,11 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
+    text-rendering:auto;
 }
 
 body {
-    background-color: #030303;
+    background-color: #1a1a1a;
     color: white;
     font-family: 'Open Sans', sans-serif;
     width: 100%;
@@ -26,5 +27,12 @@ body {
 a {
     color: inherit;
     text-decoration: none;
+}
+
+.backBtn {
+    align-self: flex-start;
+    margin-left: 10%;
+    position: sticky;
+    top: 0;
 }
 

@@ -2,6 +2,7 @@ import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useHistory, useParams } from "react-router"
 import { deletePost, getOnePosts } from "../../../store/posts"
+import './IndividualPost.css'
 
 const IndividualPost = () => {
     
@@ -19,18 +20,23 @@ const IndividualPost = () => {
     
     return (
         <div className='pageContainer'>
-            <h1>{currentPost.title}</h1>
-            <h2>{currentPost.content}</h2>
+            <div className='post-details'>
+                <h1>{currentPost.title}</h1>
+                <p>{currentPost.content}</p>
+            </div>
 
-            {user.id === currentPost.user_id && (
-                <div>
-                    <button onClick={() => history.push(`/post/${currentPost.id}/edit`)}>Edit</button>
-                    <button onClick={() => {
-                        dispatch(deletePost(currentSubreddit.id, currentPost.id))
-                        history.push(`/subreddits/${currentSubreddit.id}`)
-                    }}>Delete</button>
-                </div>
-            )}
+            <div className='user-controls'>
+                {user.id === currentPost.user_id && (
+                    <div>
+                        <button className='editBtn' onClick={() => history.push(`/post/${currentPost.id}/edit`)}>Edit</button>
+                        <button onClick={() => {
+                            dispatch(deletePost(currentSubreddit.id, currentPost.id))
+                            history.push(`/subreddits/${currentSubreddit.id}`)
+                        }} className='deleteBtn'>Delete</button>
+                    </div>
+                )}
+                <button className='post-username'>{currentPost?.user?.username}</button>
+            </div>
         </div>
     )
 }

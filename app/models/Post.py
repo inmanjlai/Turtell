@@ -8,7 +8,7 @@ class Post(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     subreddit_id = db.Column(db.Integer, db.ForeignKey("subreddits.id"), nullable=False)
     title = db.Column(db.String(150), nullable=False)
-    content = db.Column(db.String(2000), nullable=False)
+    content = db.Column(db.String(5000), nullable=False)
 
     subreddit = db.relationship("Subreddit", back_populates="posts")
     user = db.relationship("User", backref="posts")

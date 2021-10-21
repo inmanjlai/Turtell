@@ -27,11 +27,11 @@ button:not(:last-child) {
 }
 
 .deleteBtn:hover {
-    background-color: #bd6161;
+    background-color: #c24b4b;
 }
 
 .editBtn:hover {
-    background-color: #6493b3;
+    background-color: rgb(238, 210, 83);
 }
 
 .subreddit-details {

@@ -1,0 +1,32 @@
+.pageContainer {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 35px 0;
+}
+
+.post-details {
+    border: 2px solid white;
+}
+
+.post-details h1{
+    /* margin-bottom: 35px; */
+    border-bottom: 2px solid white ;
+    padding: 15px;
+}
+
+.post-details p{
+    /* margin-bottom: 35px; */
+    padding: 15px;
+}
+
+.user-controls {
+    align-self: flex-end;
+}
+
+.post-username {
+    margin-left: 10px;
+}

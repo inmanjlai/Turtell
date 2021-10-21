@@ -3,13 +3,31 @@
     flex-direction: column;
 }
 
+.post-details {
+    width: 100%;
+}
+
 .postContainer {
     border: 2px solid white;
+    box-shadow: -8px 8px 0 #64B39B;
+    transition: 0.4s;
 }
+
+.postContainer:hover {
+    border: 2px solid white;
+    box-shadow: none;
+    transform: translateX(-8px) translateY(8px);
+}
+
+.individualPost:hover a ~ button {
+    box-shadow: none;
+    transform: translateX(-8px) translateY(8px);
+}
+
 
 .postContainer h2 {
     padding: 15px;
-    border-bottom: 1px solid white;
+    border-bottom: 2px solid white;
 }
 
 .postContainer p {
@@ -21,4 +39,15 @@
     width: max-content;
     align-self: flex-end;
     margin-bottom: 25px;
+    transition: 0.4s;
+    box-shadow: -8px 8px 0 #64B39B;
+}
+
+.individualPost button:hover {
+    background-color: white;
+}
+
+.green {
+    color: #64B39B;
+    font-weight: 700;
 }
