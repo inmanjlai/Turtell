@@ -13,7 +13,7 @@ class Subreddit(db.Model):
 
     owner = db.relationship("User", backref="owned_subreddits", foreign_keys=[owner_id])
     members = db.relationship("User", secondary=members, back_populates="subreddits")
-
+    posts = db.relationship("Post", back_populates="subreddit", cascade="all, delete-orphan")
 
     def to_dict(self):
         return {

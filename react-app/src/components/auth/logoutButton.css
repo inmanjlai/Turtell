@@ -1,0 +1,17 @@
+.logoutBtn {
+    background-color: transparent;
+    padding: 12px 17px;
+    border: none;
+    color: #1a1a1a;
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.4s;
+    position: relative;
+    font-family: 'Archivo Black', sans-serif;
+}
+
+.logoutBtn:hover {
+    color: #64B39B;
+    background-color: transparent;
+}
+

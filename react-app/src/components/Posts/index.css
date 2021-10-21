@@ -1,0 +1,24 @@
+.individualPost {
+    display: flex;
+    flex-direction: column;
+}
+
+.postContainer {
+    border: 2px solid white;
+}
+
+.postContainer h2 {
+    padding: 15px;
+    border-bottom: 1px solid white;
+}
+
+.postContainer p {
+    padding: 15px;
+}
+
+.individualPost button {
+    color: black;
+    width: max-content;
+    align-self: flex-end;
+    margin-bottom: 25px;
+}

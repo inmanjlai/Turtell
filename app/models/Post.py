@@ -10,13 +10,17 @@ class Post(db.Model):
     title = db.Column(db.String(150), nullable=False)
     content = db.Column(db.String(2000), nullable=False)
 
+    subreddit = db.relationship("Subreddit", back_populates="posts")
+    user = db.relationship("User", backref="posts")
+
     def to_dict(self):
         return {
             'id': self.id,
             'user_id': self.user_id,
             'subreddit_id': self.subreddit_id,
             'title': self.title,
-            'content': self.content
+            'content': self.content,
+            'user': self.user.to_dict()
         }
 
 

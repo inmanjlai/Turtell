@@ -18,7 +18,7 @@ const IndividualPost = () => {
     },[dispatch, id])
     
     return (
-        <div>
+        <div className='pageContainer'>
             <h1>{currentPost.title}</h1>
             <h2>{currentPost.content}</h2>
 

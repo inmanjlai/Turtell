@@ -1,0 +1,39 @@
+.page-container {
+    width: 60%;
+    height: 100%;
+    padding: 40px 0;
+}
+
+.user-controls {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 20px;
+}
+
+button {
+    background-color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.4s;
+}
+
+button:hover {
+    background-color: #64B39B;
+}
+
+button:not(:last-child) {
+    margin-right: 10px;
+}
+
+.deleteBtn:hover {
+    background-color: #bd6161;
+}
+
+.editBtn:hover {
+    background-color: #6493b3;
+}
+
+.subreddit-details {
+    padding-bottom: 20px;
+}
