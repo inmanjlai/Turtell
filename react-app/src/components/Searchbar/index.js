@@ -2,6 +2,7 @@ import { useState } from "react"
 import { useDispatch } from "react-redux"
 import { useHistory } from "react-router"
 import './index.css'
+import { searchForSubreddits } from "../../store/subreddits"
 
 const Searchbar = () => {
 
@@ -11,7 +12,7 @@ const Searchbar = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        // dispatch(searchForSubreddits(search))
+        dispatch(searchForSubreddits(search))
         history.push(`/subreddits/search/${search}`)
     }
 

@@ -17,7 +17,7 @@ const NavBar = () => {
             [ Turtell ]
           </NavLink>
         </li>
-        <Searchbar />
+        {user && <Searchbar />}
         <li className='userAuth'>
           {!user?.id && <NavLink to='/login' exact={true} activeClassName='active'>
             Login

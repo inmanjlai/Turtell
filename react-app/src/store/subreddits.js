@@ -31,6 +31,15 @@ export const getOneSubreddit = (id) => async (dispatch) => {
   }
 }
 
+export const searchForSubreddits = (query) => async (dispatch) => {
+  const response = await fetch(`/api/subreddits/search/${query}`);
+
+  if (response.ok) {
+    const data = await response.json();  
+    dispatch(load(data));
+  }
+}
+
 export const createSubreddit = (subreddit) => async (dispatch) => {
   const response = await fetch('/api/subreddits/', {
     method: "POST",
@@ -68,6 +77,7 @@ export const deleteOneSubreddit = (id) => async (dispatch) => {
     dispatch(load(data));
   }
 }
+
 
 const initialState = {};
 

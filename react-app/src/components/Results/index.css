@@ -1,0 +1,14 @@
+.single-subreddit {
+    padding: 15px;
+    border: 2px solid white;
+}
+
+.subreddit-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 25px;
+}
+
+.subreddit-container button {
+    align-self: flex-end;
+}

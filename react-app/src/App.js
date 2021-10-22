@@ -16,6 +16,7 @@ import IndividualPost from './components/Posts/IndividualPost';
 import EditPost from './components/Posts/EditPost';
 import BackButton from './components/NavBar/BackButton';
 import CuratedFeed from './components/Posts/CuratedFeed';
+import Results from './components/Results';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -49,21 +50,24 @@ function App() {
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
-        <Route path='/' exact={true} >
+        <ProtectedRoute path='/' exact={true} >
           <CuratedFeed />
-        </Route>
+        </ProtectedRoute>
         <ProtectedRoute path='/subreddits/new' exact={true} >
           <CreateSubreddit />
         </ProtectedRoute>
         <ProtectedRoute path='/subreddits/:id/edit' exact={true} >
           <EditSubreddit />
         </ProtectedRoute>
-        <Route path='/subreddits/:id' exact={true} >
+        <ProtectedRoute path='/subreddits/:id' exact={true} >
           <IndividualSubreddit />
-        </Route>
-        <Route path='/posts/:id' exact={true} >
+        </ProtectedRoute>
+        <ProtectedRoute path='/posts/:id' exact={true} >
           <IndividualPost />
-        </Route>
+        </ProtectedRoute>
+        <ProtectedRoute path='/subreddits/search/:query' exact={true} >
+          <Results />
+        </ProtectedRoute>
         <ProtectedRoute path='/post/:id/edit' exact={true} >
           <EditPost />
         </ProtectedRoute>

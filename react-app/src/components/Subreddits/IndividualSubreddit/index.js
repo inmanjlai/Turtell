@@ -34,7 +34,7 @@ const IndividualSubreddit = () => {
                 <p>{currentSubreddit?.description}</p>
             </div>
                 <div className='user-controls'>
-                    {followed_subreddits?.includes(currentSubreddit?.id) ? 
+                    {followed_subreddits?.ids?.includes(currentSubreddit?.id) ? 
                         (
                             <div>
                                 <button onClick={() => dispatch(unfollowOneSubreddit(currentSubreddit.id, user.id))}>Leave</button>

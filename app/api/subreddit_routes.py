@@ -1,3 +1,4 @@
+from operator import truediv
 from flask import Blueprint, jsonify, session, request
 from app.models import db, Subreddit, User
 from app.forms import CreateSubreddit, EditSubreddit
@@ -98,7 +99,8 @@ def followed_subreddit(id):
         for member in subreddit.members:
             if member.id == id:
                 subreddits_i_follow.append(subreddit.to_dict())
-    return {"subreddits": [id for id in subreddits_i_follow]}
+    return {"subreddits":{"subreddits": [subreddit for subreddit in subreddits_i_follow], "ids": [subreddit['id'] for subreddit in subreddits_i_follow]}}
+
 
 # FOLLOW A SPECIFIC SUBREDDIT
 @subreddit_routes.route('/<int:subreddit_id>/follow/<int:user_id>', methods=["POST"])
@@ -117,8 +119,9 @@ def follow_subreddit(subreddit_id, user_id):
     for subreddit in subreddits:
         for member in subreddit.members:
             if member.id == user_id:
-                subreddits_i_follow.append(subreddit.id)
-    return {"subreddits": [id for id in subreddits_i_follow]}
+                subreddits_i_follow.append(subreddit.to_dict())
+    return {"subreddits":{"subreddits": [subreddit for subreddit in subreddits_i_follow], "ids": [subreddit['id'] for subreddit in subreddits_i_follow]}}
+
 
 # UNFOLLOW A SUBREDDIT
 @subreddit_routes.route('/<int:subreddit_id>/unfollow/<int:user_id>', methods=["DELETE"])
@@ -143,12 +146,13 @@ def unfollow_subreddit(subreddit_id, user_id):
     for subreddit in subreddits:
         for member in subreddit.members:
             if member.id == user_id:
-                subreddits_i_follow.append(subreddit.id)
-    return {"subreddits": [id for id in subreddits_i_follow]}
+                subreddits_i_follow.append(subreddit.to_dict())
+    return {"subreddits":{"subreddits": [subreddit for subreddit in subreddits_i_follow], "ids": [subreddit['id'] for subreddit in subreddits_i_follow]}}
 
-@subreddit_routes.route('/search/:query')
+@subreddit_routes.route('/search/<query>')
 def searched_subreddit(query):
     print(CREDBG + "\n QUERY: \n", query, "\n" + CEND)
-    subreddits = Subreddit.query.filter(query in Subreddit.name).all()
-    print(CREDBG + "\n SUBREDDITS: \n", subreddits, "\n" + CEND)
+
+    subreddits = Subreddit.query.filter(Subreddit.name.startswith(query)).all()
+    # print(CREDBG + "\n SUBREDDITS: \n", subreddits, "\n" + CEND)
     return {"subreddits": [subreddit.to_dict() for subreddit in subreddits]}
