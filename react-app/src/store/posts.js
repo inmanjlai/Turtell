@@ -45,6 +45,14 @@ export const getAllUsersPosts = (user_id) => async (dispatch) => {
     dispatch(load(data));
   }
 }
+export const getCuratedFeed = (user_id) => async (dispatch) => {
+  const response = await fetch(`/api/posts/user/${user_id}/feed`);
+
+  if (response.ok) {
+    const data = await response.json();  
+    dispatch(load(data));
+  }
+}
 
 export const createPost = (post) => async (dispatch) => {
   const response = await fetch(`/api/posts/`, {

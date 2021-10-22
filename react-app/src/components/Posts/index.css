@@ -19,7 +19,7 @@
     transform: translateX(-8px) translateY(8px);
 }
 
-.individualPost:hover a ~ button {
+.individualPost a:hover ~ button {
     box-shadow: none;
     transform: translateX(-8px) translateY(8px);
 }
@@ -50,4 +50,11 @@
 .green {
     color: #64B39B;
     font-weight: 700;
+}
+
+.errors {
+    background-color: #c24b4b;
+    padding: 10px 15px;
+    color: white;
+
 }

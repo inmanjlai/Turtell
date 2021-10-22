@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { editPost } from '../../../store/posts'
@@ -15,12 +15,13 @@ const EditPost = () => {
     
     const [title, setTitle] = useState(currentPost.title)
     const [content, setContent] = useState(currentPost.content)
+    const [errors, setErrors] = useState([])
 
     const handleSubmit = (e) => {
         e.preventDefault()
         const newPost = {
-            user_id: user.id,
-            subreddit_id: currentSubreddit.id,
+            user_id: user?.id,
+            subreddit_id: currentSubreddit?.id,
             title,
             content
         }
@@ -28,10 +29,20 @@ const EditPost = () => {
         history.push(`/subreddits/${currentSubreddit.id}`)
     }
 
+    useEffect(() => {
+        const errors = []
+        if(title?.length > 150) errors.push("Please limit your title to a maximum of 150 characters.")
+        if(content?.length > 2000) errors.push("Please limit your post to a maximum of 2000 characters.")
+        setErrors(errors)
+    },[content, title])
+
     return (
             <form onSubmit={handleSubmit}>
                 <h2>Edit Post</h2>
                 <br/>
+                <div>
+                    {errors.length > 0 && errors.map((error, idx) => <p key={idx} className="errors">{error}</p> )}
+                </div>
                 <div className="form-container">
                     <div>
                         {/* <label>Post Title</label> */}
@@ -52,7 +63,7 @@ const EditPost = () => {
                     </div>
                 </div>
 
-                <button>Submit</button>
+                <button disabled={title.length <= 0 || content.length <= 0 || errors.length > 0}>Submit</button>
             </form>
     )
 }

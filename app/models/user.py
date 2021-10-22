@@ -38,3 +38,12 @@ class User(db.Model, UserMixin):
             'username': self.username,
             'email': self.email,
         }
+    
+    def to_dict_server(self):
+        return {
+            'id': self.id,
+            'username': self.username,
+            'email': self.email,
+            'subreddits': [subreddit.id for subreddit in self.subreddits]
+        }
+    

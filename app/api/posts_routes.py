@@ -93,3 +93,16 @@ def delete_post(subreddit_id, post_id):
 
     posts = Post.query.filter(Post.subreddit_id == subreddit_id).all()
     return {post.id: post.to_dict() for post in posts}
+
+@post_routes.route('/user/<int:user_id>/feed')
+def get_users_feed(user_id):
+    user = User.query.get(user_id).to_dict_server()
+    posts = Post.query.all()
+
+    curated_posts = []
+
+    for post in posts:
+        if post.subreddit_id in user['subreddits']:
+            curated_posts.append(post)
+
+    return {post.id: post.to_dict() for post in curated_posts}

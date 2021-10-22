@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { createSubreddit } from '../../../store/subreddits'
@@ -10,7 +10,8 @@ const CreateSubreddit = () => {
 
     const [name, setName] = useState("")
     const [tag, setTag] = useState("")
-    const [description, setDescription] = useState("")
+    const [description, setDescription] = useState("")    
+    const [errors, setErrors] = useState([])
 
     const user = useSelector((state) => state.session.user)
 
@@ -26,10 +27,21 @@ const CreateSubreddit = () => {
         history.push("/")
     }
 
+    useEffect(() => {
+        const errors = []
+        if(tag?.length > 50) errors.push("Please limit your tag name to a maximum of 50 characters.")
+        if(name.length > 255) errors.push("Please limit your Subreddit name to a maximum of 255 characters")
+        if(description.length > 255) errors.push("Please limit your Subreddit Description to a maximum of 255 characters")
+        setErrors(errors)
+    },[tag, name, description])
+
     return (
             <form onSubmit={handleSubmit}>
                 <h2>Create Subreddit</h2>
                 <br/>
+                <div>
+                    {errors.length > 0 && errors.map((error, idx) => <p key={idx} className="errors">{error}</p> )}
+                </div>
                 <div className="form-container">
                     <div>
                         <input type="text" 
@@ -56,7 +68,7 @@ const CreateSubreddit = () => {
                     </div>
                 </div>
 
-                <button>Submit</button>
+                <button disabled={name.length <= 0 || description.length <= 0 || tag.length <= 0 || errors.length > 0}>Submit</button>
             </form>
     )
 }

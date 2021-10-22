@@ -8,7 +8,6 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/Users/UsersList';
 import User from './components/Users/User';
 import { authenticate } from './store/session';
-import Subreddits from './components/Subreddits';
 import CreateSubreddit from './components/Subreddits/CreateSubreddit';
 import EditSubreddit from './components/Subreddits/EditSubreddit';
 import IndividualSubreddit from './components/Subreddits/IndividualSubreddit';
@@ -16,6 +15,7 @@ import CreatePost from './components/Posts/CreatePost';
 import IndividualPost from './components/Posts/IndividualPost';
 import EditPost from './components/Posts/EditPost';
 import BackButton from './components/NavBar/BackButton';
+import CuratedFeed from './components/Posts/CuratedFeed';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -50,7 +50,7 @@ function App() {
           <User />
         </ProtectedRoute>
         <Route path='/' exact={true} >
-          <Subreddits />
+          <CuratedFeed />
         </Route>
         <ProtectedRoute path='/subreddits/new' exact={true} >
           <CreateSubreddit />
