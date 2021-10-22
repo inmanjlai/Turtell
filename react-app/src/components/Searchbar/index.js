@@ -1,15 +1,17 @@
 import { useState } from "react"
 import { useDispatch } from "react-redux"
+import { useHistory } from "react-router"
 import './index.css'
 
 const Searchbar = () => {
 
     const dispatch = useDispatch()
+    const history = useHistory()
     const [search, setSearch] = useState("")
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        dispatch(searchForSubreddits(search))
+        // dispatch(searchForSubreddits(search))
         history.push(`/subreddits/search/${search}`)
     }
 
