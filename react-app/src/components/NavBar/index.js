@@ -1,9 +1,9 @@
-
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
 import './NavBar.css'
+import Searchbar from '../Searchbar';
 
 const NavBar = () => {
 
@@ -17,6 +17,7 @@ const NavBar = () => {
             [ Turtell ]
           </NavLink>
         </li>
+        <Searchbar />
         <li className='userAuth'>
           {!user?.id && <NavLink to='/login' exact={true} activeClassName='active'>
             Login

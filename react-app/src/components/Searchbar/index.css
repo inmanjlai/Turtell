@@ -1,0 +1,15 @@
+.searchbar {
+    background-color: #1a1a1a;
+}
+
+ul form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin-top: 0px;
+}
+
+input::placeholder {
+    color: #64B39B;
+}

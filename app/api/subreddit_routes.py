@@ -97,7 +97,7 @@ def followed_subreddit(id):
     for subreddit in subreddits:
         for member in subreddit.members:
             if member.id == id:
-                subreddits_i_follow.append(subreddit.id)
+                subreddits_i_follow.append(subreddit.to_dict())
     return {"subreddits": [id for id in subreddits_i_follow]}
 
 # FOLLOW A SPECIFIC SUBREDDIT
@@ -145,3 +145,10 @@ def unfollow_subreddit(subreddit_id, user_id):
             if member.id == user_id:
                 subreddits_i_follow.append(subreddit.id)
     return {"subreddits": [id for id in subreddits_i_follow]}
+
+@subreddit_routes.route('/search/:query')
+def searched_subreddit(query):
+    print(CREDBG + "\n QUERY: \n", query, "\n" + CEND)
+    subreddits = Subreddit.query.filter(query in Subreddit.name).all()
+    print(CREDBG + "\n SUBREDDITS: \n", subreddits, "\n" + CEND)
+    return {"subreddits": [subreddit.to_dict() for subreddit in subreddits]}
