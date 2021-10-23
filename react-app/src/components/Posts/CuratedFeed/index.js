@@ -1,6 +1,5 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { Redirect } from "react-router"
 import Posts from ".."
 import { getAllSubredditsIFollow } from "../../../store/followed_subreddits"
 import { getCuratedFeed } from "../../../store/posts"
@@ -17,15 +16,14 @@ const CuratedFeed = () => {
     useEffect(() => {
         dispatch(getCuratedFeed(user?.id))
         dispatch(getAllSubredditsIFollow(user?.id))
-    }, [dispatch])
+    }, [dispatch, user?.id])
 
     const curatedPosts = Object.keys(posts)
-    console.log(curatedPosts)
 
     return (
         <div className="feed-container">
             <div className='page-container'>
-                {curatedPosts?.map((post) => <Posts post={post} key={post.id}/>)}
+                {curatedPosts?.map((post) => <Posts post={post} key={post}/>)}
             </div>
             <Sidebar className='sidebar' subreddits={followed_subreddits?.subreddits} />
         </div>

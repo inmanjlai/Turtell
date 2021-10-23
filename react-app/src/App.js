@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar';
@@ -17,10 +17,14 @@ import EditPost from './components/Posts/EditPost';
 import BackButton from './components/NavBar/BackButton';
 import CuratedFeed from './components/Posts/CuratedFeed';
 import Results from './components/Results';
+import SplashPage from './components/SplashPage';
+import Footer from './components/Footer';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
+
+  const user = useSelector((state) => (state.session.user))
 
   useEffect(() => {
     (async() => {
@@ -50,9 +54,9 @@ function App() {
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
-        <ProtectedRoute path='/' exact={true} >
-          <CuratedFeed />
-        </ProtectedRoute>
+        <Route path='/' exact={true} >
+          {user?.id ? <CuratedFeed /> : <SplashPage />}
+        </Route>
         <ProtectedRoute path='/subreddits/new' exact={true} >
           <CreateSubreddit />
         </ProtectedRoute>
@@ -75,6 +79,7 @@ function App() {
           <CreatePost />
         </ProtectedRoute>
       </Switch>
+      <Footer />
     </BrowserRouter>
   );
 }

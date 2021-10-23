@@ -25,7 +25,6 @@ export const getOnePosts = (id) => async (dispatch) => {
 }
 
 export const getAllSubredditsPosts = (subreddit_id) => async (dispatch) => {
-  console.log(subreddit_id, "INSIDE THUNK")
   if(subreddit_id){
     const response = await fetch(`/api/posts/subreddit/${subreddit_id}`);
   

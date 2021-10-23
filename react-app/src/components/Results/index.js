@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from "react-redux"
-import { useHistory } from "react-router"
 import Sidebar from "../Sidebar"
-import { unfollowOneSubreddit, followOneSubreddit, getAllSubredditsIFollow } from "../../store/followed_subreddits"
+import { unfollowOneSubreddit, followOneSubreddit } from "../../store/followed_subreddits"
 import './index.css'
+import { NavLink } from "react-router-dom"
 
 const Results = () => {
     
@@ -10,19 +10,18 @@ const Results = () => {
     const followed_subreddits = useSelector((state) => state.followed_subreddits)
     const user = useSelector((state) => state.session.user)
     const dispatch = useDispatch()
-    const history = useHistory()
 
     return (
         <div className='feed-container'>
             <div className='page-container'>
                 {subreddits?.map((subreddit) => {
                     return (
-                        <div className='subreddit-container'>
-                            <div className='single-subreddit'>
+                        <div className='subreddit-container' key={subreddit.id}>
+                            <NavLink to={`/subreddits/${subreddit.id}`}><div className='single-subreddit'>
                                 <h1>{subreddit?.name}</h1>
                                 <h2>r/{subreddit?.tag}</h2>
                                 <p>{subreddit?.description}</p>
-                            </div>
+                            </div></NavLink>
                             {followed_subreddits?.ids?.includes(subreddit?.id) ? 
                                 (
                                         <button onClick={() => {

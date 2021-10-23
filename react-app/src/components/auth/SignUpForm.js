@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
@@ -11,6 +11,15 @@ const SignUpForm = () => {
   const [repeatPassword, setRepeatPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    const errors = []
+    if(password !== repeatPassword) errors.push("Both passwords have to match")
+    if(username.length > 25) errors.push("Please limit your username to 25 characters")
+    if(email.length > 0 && !email.includes("@")) errors.push("Please enter a valid email address")
+
+    setErrors(errors)
+  }, [username, email, password, repeatPassword])
 
   const onSignUp = async (e) => {
     e.preventDefault();
@@ -42,8 +51,10 @@ const SignUpForm = () => {
     return <Redirect to='/' />;
   }
 
+
   return (
     <form onSubmit={onSignUp}>
+      <h1 style={{marginBottom: "15px"}}>Sign Up</h1>
       <div>
         {errors.map((error, ind) => (
           <div className='errors' key={ind}>{error}</div>
@@ -89,7 +100,9 @@ const SignUpForm = () => {
           ></input>
         </div>
       </div>
-      <button type='submit'>Sign Up</button>
+      <div className='buttons'>
+        <button type='submit' disabled={errors.length > 0 || username.length <= 0 || email.length <= 0 || password.length <= 0 || repeatPassword.length <= 0}>Sign Up</button>
+      </div>
     </form>
   );
 };

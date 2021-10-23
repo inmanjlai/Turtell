@@ -8,7 +8,7 @@ const Sidebar = ({subreddits}) => {
                 <h2>Communities You Follow</h2>
                 {subreddits?.map((subreddit) => {
                     return (
-                        <h3><NavLink to={`/subreddits/${subreddit.id}`}>r/{subreddit.tag}</NavLink></h3>
+                        <h3 key={subreddit.id}><NavLink to={`/subreddits/${subreddit.id}`}>r/{subreddit.tag}</NavLink></h3>
                     )
                 })}
             </div>

@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { logout } from '../../store/session';
 import './logoutButton.css'
 
@@ -9,7 +8,6 @@ const LogoutButton = () => {
     await dispatch(logout());
   };
 
-  const user = useSelector((state) => state.session.user)
 
   return (    
       <button className='logoutBtn' onClick={onLogout}>Log Out</button>

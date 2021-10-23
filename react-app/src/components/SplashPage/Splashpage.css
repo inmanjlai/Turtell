@@ -1,0 +1,67 @@
+.splashpage-container {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    height: 600px;
+    align-items: center;
+    margin-bottom: 170px;
+}
+
+.splashpage-container h1 {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.option {
+    display: flex;
+    flex-direction: column;
+    margin: 15px;
+    width: 400px;
+    height: auto;
+}
+.options-container, .guest-user {
+    display: flex;
+    width: 900px;
+    justify-content: center;
+}
+
+.option div {
+    border: 2px solid white;
+    padding: 15px;
+    width: 400px;
+    margin: 0px;
+    height: 200px;
+    display: flex;
+    box-shadow: -8px 8px 0 #64B39B;
+    transition: transform 0.4s, box-shadow 0.4s;
+    align-items: center;
+    cursor: pointer;
+}
+
+.option div:hover {
+    box-shadow: none;
+    transform: translate(-8px, 8px);
+}
+
+.option a:hover ~ button, .option div:hover ~ button{
+    box-shadow: none;
+    transform: translate(-8px, 8px);
+}
+
+.option button {
+    align-self: flex-end;
+    box-shadow: -8px 8px 0 #64B39B;
+    transition: transform 0.4s, box-shadow 0.4s;
+
+}
+
+.option img {
+    height: 70%;
+    width: 100%;
+    object-fit: contain;
+    filter: invert();
+}
+
+.option button:hover {
+    background-color: white;
+}

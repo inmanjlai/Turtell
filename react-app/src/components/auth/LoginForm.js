@@ -32,6 +32,7 @@ const LoginForm = () => {
 
   return (
     <form onSubmit={onLogin}>
+        <h1 style={{marginBottom: "15px"}}>Login</h1>
         <div>
           {errors.map((error, ind) => (
             <div className='errors' key={ind}>{error}</div>
@@ -58,7 +59,10 @@ const LoginForm = () => {
               />
             </div>
         </div>
-        <button type='submit'>Login</button>
+        <div className='buttons'>
+          <button type='submit'>Login</button>
+          <button type="button" onClick={() => dispatch(login("demo@aa.io", "password"))}>Login as Demo User</button>
+        </div>
       </form>
 
   );

@@ -12,7 +12,6 @@ const EditForm = ({currentSubreddit}) => {
     const [errors, setErrors] = useState([])
 
     
-    console.log(currentSubreddit, "INSIDE THE FORM COMPONENT")
 
     useEffect(() => {
         const errors = []

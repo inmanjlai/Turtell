@@ -4,10 +4,7 @@ import './index.css'
 
 const Posts = ({post}) => {
     
-    const posts = useSelector((state) => state.posts)
-
-    console.log(posts, "this is the post")
-    
+    const posts = useSelector((state) => state.posts)    
     return(
         <div className='individualPost'>
             <NavLink to={`/posts/${post}`}>

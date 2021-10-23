@@ -11,7 +11,6 @@ const EditSubreddit = () => {
     const currentSubreddit = useSelector((state) => state.subreddits.currentSubreddit)
     
     
-    console.log(currentSubreddit, "INSIDE THE FORM COMPONENT")
 
     useEffect(() => { 
         dispatch(getOneSubreddit(id))

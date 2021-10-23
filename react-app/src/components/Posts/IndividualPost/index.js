@@ -26,12 +26,12 @@ const IndividualPost = () => {
             </div>
 
             <div className='user-controls'>
-                {user.id === currentPost.user_id && (
+                {user?.id === currentPost?.user_id && (
                     <div>
-                        <button className='editBtn' onClick={() => history.push(`/post/${currentPost.id}/edit`)}>Edit</button>
+                        <button className='editBtn' onClick={() => history.push(`/post/${currentPost?.id}/edit`)}>Edit</button>
                         <button onClick={() => {
-                            dispatch(deletePost(currentSubreddit.id, currentPost.id))
-                            history.push(`/subreddits/${currentSubreddit.id}`)
+                            dispatch(deletePost(currentSubreddit?.id, currentPost?.id))
+                            history.push(`/subreddits/${currentSubreddit?.id}`)
                         }} className='deleteBtn'>Delete</button>
                     </div>
                 )}
