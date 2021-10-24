@@ -1,0 +1,33 @@
+.comments-list {
+    width: 70%;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.comment {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.comment-content {
+    border: 2px solid white;
+    padding: 15px;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.comment-user {
+    align-self: flex-end;
+}
+
+.create-comment {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.create-comment form {
+    width: 100%;
+}

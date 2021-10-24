@@ -3,3 +3,4 @@ from .members import members
 from .user import User
 from .Subreddit import Subreddit
 from .Post import Post
+from .Comments import Comment
