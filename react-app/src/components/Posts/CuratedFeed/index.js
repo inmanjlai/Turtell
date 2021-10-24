@@ -23,7 +23,10 @@ const CuratedFeed = () => {
     return (
         <div className="feed-container">
             <div className='page-container'>
-                {curatedPosts?.map((post) => <Posts post={post} key={post}/>)}
+                { curatedPosts.length > 0 ?
+                    curatedPosts?.map((post) => <Posts post={post} key={post}/>) :
+                    <h1>You don't follow any communities, join a community to populate your personal curated feed...</h1>
+                }
             </div>
             <Sidebar className='sidebar' subreddits={followed_subreddits?.subreddits} />
         </div>

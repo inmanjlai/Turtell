@@ -41,7 +41,7 @@ const EditPost = () => {
                 <h2>Edit Post</h2>
                 <br/>
                 <div>
-                    {errors.length > 0 && errors.map((error, idx) => <p key={idx} className="errors">{error}</p> )}
+                    {errors?.length > 0 && errors?.map((error, idx) => <p key={idx} className="errors">{error}</p> )}
                 </div>
                 <div className="form-container">
                     <div>
@@ -63,7 +63,7 @@ const EditPost = () => {
                     </div>
                 </div>
 
-                <button disabled={title.length <= 0 || content.length <= 0 || errors.length > 0}>Submit</button>
+                <button disabled={title?.length <= 0 || content?.length <= 0 || errors?.length > 0}>Submit</button>
             </form>
     )
 }
