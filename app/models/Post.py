@@ -1,3 +1,4 @@
+from app.models.Subreddit import Subreddit
 from .db import db
 
 
@@ -20,7 +21,8 @@ class Post(db.Model):
             'subreddit_id': self.subreddit_id,
             'title': self.title,
             'content': self.content,
-            'user': self.user.to_dict()
+            'user': self.user.to_dict(),
+            'subreddit': self.subreddit.to_dict()
         }
 
 

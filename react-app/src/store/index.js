@@ -4,12 +4,14 @@ import session from './session'
 import subreddits from './subreddits'
 import followed_subreddits from './followed_subreddits'
 import posts from './posts'
+import comments from './comments'
 
 const rootReducer = combineReducers({
   session,
   subreddits,
   followed_subreddits,
-  posts
+  posts,
+  comments
 });
 
 

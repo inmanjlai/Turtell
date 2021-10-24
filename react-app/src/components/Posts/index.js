@@ -1,9 +1,11 @@
 import { useSelector } from "react-redux"
-import { NavLink } from "react-router-dom"
+import { NavLink, useHistory } from "react-router-dom"
 import './index.css'
 
 const Posts = ({post}) => {
     
+
+    const history = useHistory()
     const posts = useSelector((state) => state.posts)    
     return(
         <div className='individualPost'>
@@ -13,7 +15,10 @@ const Posts = ({post}) => {
                     <p>{posts[post]?.content?.slice(0, 700)}... <em className='green'>click to view full post</em> </p>
                 </div>
             </NavLink>
-            <button>Posted by {posts[post]?.user?.username}</button>
+            <div className='post-buttons'>
+                <button onClick={() => history.push(`/subreddits/${posts[post]?.subreddit?.id}`)}>r/{posts[post]?.subreddit?.tag}</button>
+                <button>Posted by {posts[post]?.user?.username}</button>
+            </div>
         </div>
         )
 }

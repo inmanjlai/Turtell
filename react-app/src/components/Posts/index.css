@@ -19,7 +19,7 @@
     transform: translateX(-8px) translateY(8px);
 }
 
-.individualPost a:hover ~ button {
+.individualPost a:hover ~ .post-buttons button{
     box-shadow: none;
     transform: translateX(-8px) translateY(8px);
 }
@@ -34,7 +34,14 @@
     padding: 15px;
 }
 
-.individualPost button {
+.post-buttons {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.individualPost .post-buttons button {
     color: black;
     width: max-content;
     align-self: flex-end;
