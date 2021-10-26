@@ -50,6 +50,8 @@ export const createSubreddit = (subreddit) => async (dispatch) => {
   if (response.ok) {
     const data = await response.json();  
     dispatch(load(data));
+    const new_subreddit = data.subreddits.find((ssubreddit) => ssubreddit.tag === subreddit.tag)
+    return new_subreddit;
   }
 }
 

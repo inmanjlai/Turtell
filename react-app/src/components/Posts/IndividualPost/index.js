@@ -68,7 +68,7 @@ const IndividualPost = () => {
             </div>
             {isOpen && <div className='create-comment'>
                 <form onSubmit={handleCreateComment}>
-                    { errors.length > 0 && <div className='errors'>{errors.map((error) => <p>{error}</p>)}</div>}
+                    { errors.length > 0 && <div className='errors'>{errors.map((error) => <p key={error}>{error}</p>)}</div>}
                     <textarea value={commentContent}
                         onChange={(e) => setCommentContent(e.target.value)} 
                         style={{margin: '0px', border: '2px solid white', width: '100%'}}

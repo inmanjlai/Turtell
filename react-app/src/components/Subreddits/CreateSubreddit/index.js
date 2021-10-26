@@ -15,7 +15,7 @@ const CreateSubreddit = () => {
 
     const user = useSelector((state) => state.session.user)
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async(e) => {
         e.preventDefault()
         const newSubreddit = {
             owner_id: user.id,
@@ -23,8 +23,9 @@ const CreateSubreddit = () => {
             tag,
             description
         }
-        dispatch(createSubreddit(newSubreddit))
-        history.push("/")
+        const data = await dispatch(createSubreddit(newSubreddit))
+        // console.log(data, "HERE IS THE DATA THAT CAME BACK")
+        history.push(`/subreddits/${data.id}`)
     }
 
     useEffect(() => {

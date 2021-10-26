@@ -13,6 +13,8 @@ const Sidebar = ({subreddits}) => {
                 })}
             </div>
             <h3 className="createBtn"><NavLink to='/subreddits/new'>Create a Community</NavLink></h3>
+
+            <h3 className='createBtn'><NavLink to="all/subreddits">Browse All Communities</NavLink></h3>
         </div>
     )
 }

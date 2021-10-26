@@ -14,7 +14,7 @@ const Results = () => {
     return (
         <div className='feed-container'>
             <div className='page-container'>
-                {subreddits?.map((subreddit) => {
+                {subreddits?.length ? subreddits?.map((subreddit) => {
                     return (
                         <div className='subreddit-container' key={subreddit.id}>
                             <NavLink to={`/subreddits/${subreddit.id}`}><div className='single-subreddit'>
@@ -35,7 +35,7 @@ const Results = () => {
                             )}
                         </div>
                     )
-                })}
+                }) : <h1>No Subreddits with that name were found.</h1>}
             </div>
             <Sidebar subreddits={followed_subreddits.subreddits}/>
         </div>

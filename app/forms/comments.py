@@ -8,7 +8,6 @@ class CreateComment(FlaskForm):
     content = StringField('content', validators=[DataRequired()])
 
 class EditComment(FlaskForm):
-    user_id = StringField('user id', validators=[DataRequired()])
     post_id = StringField('post_id', validators=[DataRequired()])
     content = StringField('content', validators=[DataRequired()])
 

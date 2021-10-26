@@ -19,6 +19,8 @@ import CuratedFeed from './components/Posts/CuratedFeed';
 import Results from './components/Results';
 import SplashPage from './components/SplashPage';
 import Footer from './components/Footer';
+import Subreddits from './components/Subreddits';
+import EditComment from './components/Comment/EditComment';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -66,6 +68,9 @@ function App() {
         <ProtectedRoute path='/subreddits/:id' exact={true} >
           <IndividualSubreddit />
         </ProtectedRoute>
+        <ProtectedRoute path='/all/subreddits' exact={true} >
+          <Subreddits />
+        </ProtectedRoute>
         <ProtectedRoute path='/posts/:id' exact={true} >
           <IndividualPost />
         </ProtectedRoute>
@@ -77,6 +82,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/subreddit/post/new' exact={true} >
           <CreatePost />
+        </ProtectedRoute>
+        <ProtectedRoute path='/comments/:id/edit' exact={true} >
+          <EditComment />
         </ProtectedRoute>
       </Switch>
       <Footer />

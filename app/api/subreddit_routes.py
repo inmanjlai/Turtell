@@ -41,10 +41,11 @@ def create_subreddit():
     if form.validate_on_submit():
         new_subreddit = Subreddit(name=data['name'], tag=data['tag'], description=data['description'], owner_id=data['owner_id'])
         db.session.add(new_subreddit)
-        db.session.commit()
 
         user = User.query.get(data['owner_id'])
         user.subreddits.append(new_subreddit)
+
+        db.session.commit()
 
         subreddits = Subreddit.query.all()
         return {"subreddits": [subreddit.to_dict() for subreddit in subreddits]}
