@@ -9,7 +9,7 @@ form {
 }
 
 .form-container {
-    border: 2px solid white;
+    border: 2px solid var(--trimmings);
     /* padding: 15px; */
     display: flex;
     flex-direction: column;
@@ -21,9 +21,9 @@ form input {
     width: 100%;
     background-color: transparent;
     border: none;
-    border-bottom: 2px solid white;
+    border-bottom: 2px solid var(--trimmings);
     padding: 8px;
-    color: white;
+    color: var(--trimmings);
 }
 
 form textarea {
@@ -34,8 +34,8 @@ form textarea {
     width: 100%;
     background-color: transparent;
     border: none;
-    /* border-bottom: 2px solid white; */
-    color: white;
+    /* border-bottom: 2px solid var(--trimmings); */
+    color: var(--trimmings);
     padding: 8px;
 }
 
@@ -49,11 +49,12 @@ textarea:focus-visible, input:focus-visible {
 }
 button {
     align-self: flex-end;
+    
 
 }
 
 /* input:not(:last-child){
-    border-bottom: 2px solid white;
+    border-bottom: 2px solid var(--trimmings);
 } */
 
 .last-child {

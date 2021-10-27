@@ -50,7 +50,7 @@ const EditComment = () => {
                     { errors.length > 0 && <div className='errors'>{errors.map((error) => <p key={error}>{error}</p>)}</div>}
                     <textarea value={commentContent}
                         onChange={(e) => setCommentContent(e.target.value)} 
-                        style={{margin: '0px', border: '2px solid white', width: '100%'}}
+                        style={{margin: '0px', border: '2px solid var(--trimmings)', width: '100%'}}
                         placeholder="Post a witty comment..."
                     >
                     </textarea>

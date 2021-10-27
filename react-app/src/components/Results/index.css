@@ -1,11 +1,11 @@
 .single-subreddit {
     padding: 15px;
-    border: 2px solid white;
+    border: 2px solid var(--trimmings);
     transition: 0.2s;
 }
 
 .single-subreddit:hover {
-    background-color: #414141;
+    background-color: var(--highlight);
 }
 
 .subreddit-container {

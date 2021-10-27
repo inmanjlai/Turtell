@@ -8,13 +8,13 @@
 }
 
 .postContainer {
-    border: 2px solid white;
-    box-shadow: -8px 8px 0 #64B39B;
+    border: 2px solid var(--trimmings);
+    box-shadow: -8px 8px 0 var(--accent);
     transition: 0.4s;
 }
 
 .postContainer:hover {
-    border: 2px solid white;
+    border: 2px solid var(--trimmings);
     box-shadow: none;
     transform: translateX(-8px) translateY(8px);
 }
@@ -27,7 +27,7 @@
 
 .postContainer h2 {
     padding: 15px;
-    border-bottom: 2px solid white;
+    border-bottom: 2px solid var(--trimmings);
 }
 
 .postContainer p {
@@ -42,27 +42,27 @@
 }
 
 .individualPost .post-buttons button {
-    color: black;
+    color: var(--primary);
     width: max-content;
     align-self: flex-end;
     margin-bottom: 25px;
     transition: 0.4s;
-    box-shadow: -8px 8px 0 #64B39B;
+    box-shadow: -8px 8px 0 var(--accent);
 }
 
 .individualPost button:hover {
-    background-color: white;
+    background-color: var(--trimmings);
 }
 
 .green {
-    color: #64B39B;
+    color: var(--accent);
     font-weight: 700;
 }
 
 .errors {
     background-color: #c24b4b;
     padding: 10px 15px;
-    color: white;
+    color: var(--trimmings);
 
 }
 
@@ -74,7 +74,7 @@
 }
 
 .sidebar {
-    border: 2px solid white;
+    border: 2px solid var(--trimmings);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -82,7 +82,7 @@
 
 .sidebar h2 {
     text-align: center;
-    border-bottom: 2px solid white;
+    border-bottom: 2px solid var(--trimmings);
     padding: 15px;
 }
 
@@ -99,11 +99,11 @@
 }
 
 .sidebar h3:hover {
-    background-color: #64B39B;
+    background-color: var(--accent);
 }
 
 .createBtn {
-    border: 2px solid white;
+    border: 2px solid var(--trimmings);
     margin-top: 15px;
     display: flex;
 }

@@ -21,9 +21,11 @@ import SplashPage from './components/SplashPage';
 import Footer from './components/Footer';
 import Subreddits from './components/Subreddits';
 import EditComment from './components/Comment/EditComment';
+import './index.css'
 
 function App() {
   const [loaded, setLoaded] = useState(false);
+  const [theme, setTheme] = useState('light')
   const dispatch = useDispatch();
 
   const user = useSelector((state) => (state.session.user))
@@ -40,55 +42,62 @@ function App() {
   }
 
   return (
-    <BrowserRouter>
-      <NavBar />
-      <BackButton />
-      <Switch>
-        <Route path='/login' exact={true}>
-          <LoginForm />
-        </Route>
-        <Route path='/sign-up' exact={true}>
-          <SignUpForm />
-        </Route>
-        <ProtectedRoute path='/users' exact={true} >
-          <UsersList/>
-        </ProtectedRoute>
-        <ProtectedRoute path='/users/:userId' exact={true} >
-          <User />
-        </ProtectedRoute>
-        <Route path='/' exact={true} >
-          {user?.id ? <CuratedFeed /> : <SplashPage />}
-        </Route>
-        <ProtectedRoute path='/subreddits/new' exact={true} >
-          <CreateSubreddit />
-        </ProtectedRoute>
-        <ProtectedRoute path='/subreddits/:id/edit' exact={true} >
-          <EditSubreddit />
-        </ProtectedRoute>
-        <ProtectedRoute path='/subreddits/:id' exact={true} >
-          <IndividualSubreddit />
-        </ProtectedRoute>
-        <ProtectedRoute path='/all/subreddits' exact={true} >
-          <Subreddits />
-        </ProtectedRoute>
-        <ProtectedRoute path='/posts/:id' exact={true} >
-          <IndividualPost />
-        </ProtectedRoute>
-        <ProtectedRoute path='/subreddits/search/:query' exact={true} >
-          <Results />
-        </ProtectedRoute>
-        <ProtectedRoute path='/post/:id/edit' exact={true} >
-          <EditPost />
-        </ProtectedRoute>
-        <ProtectedRoute path='/subreddit/post/new' exact={true} >
-          <CreatePost />
-        </ProtectedRoute>
-        <ProtectedRoute path='/comments/:id/edit' exact={true} >
-          <EditComment />
-        </ProtectedRoute>
-      </Switch>
-      <Footer />
-    </BrowserRouter>
+    <div className={theme}>
+      <BrowserRouter>
+        <NavBar />
+        <button 
+          onClick={() => theme === 'light' ? setTheme('dark') : setTheme('light')}
+          style={{position: "fixed", bottom:"15px", right: "15px", backgroundColor: "transparent", color: "var(--trimmings)"}}
+          >{theme === 'light' ? "Dark Mode" : 'Light Mode'}
+        </button>
+        <BackButton />
+        <Switch>
+          <Route path='/login' exact={true}>
+            <LoginForm />
+          </Route>
+          <Route path='/sign-up' exact={true}>
+            <SignUpForm />
+          </Route>
+          <ProtectedRoute path='/users' exact={true} >
+            <UsersList/>
+          </ProtectedRoute>
+          <ProtectedRoute path='/users/:userId' exact={true} >
+            <User />
+          </ProtectedRoute>
+          <Route path='/' exact={true} >
+            {user?.id ? <CuratedFeed /> : <SplashPage />}
+          </Route>
+          <ProtectedRoute path='/subreddits/new' exact={true} >
+            <CreateSubreddit />
+          </ProtectedRoute>
+          <ProtectedRoute path='/subreddits/:id/edit' exact={true} >
+            <EditSubreddit />
+          </ProtectedRoute>
+          <ProtectedRoute path='/subreddits/:id' exact={true} >
+            <IndividualSubreddit />
+          </ProtectedRoute>
+          <ProtectedRoute path='/all/subreddits' exact={true} >
+            <Subreddits />
+          </ProtectedRoute>
+          <ProtectedRoute path='/posts/:id' exact={true} >
+            <IndividualPost />
+          </ProtectedRoute>
+          <ProtectedRoute path='/subreddits/search/:query' exact={true} >
+            <Results />
+          </ProtectedRoute>
+          <ProtectedRoute path='/post/:id/edit' exact={true} >
+            <EditPost />
+          </ProtectedRoute>
+          <ProtectedRoute path='/subreddit/post/new' exact={true} >
+            <CreatePost />
+          </ProtectedRoute>
+          <ProtectedRoute path='/comments/:id/edit' exact={true} >
+            <EditComment />
+          </ProtectedRoute>
+        </Switch>
+        <Footer />
+      </BrowserRouter>
+    </div>
   );
 }
 

@@ -2,7 +2,7 @@
     background-color: transparent;
     padding: 12px 17px;
     border: none;
-    color: #1a1a1a;
+    color: var(--primary);
     font-weight: 800;
     cursor: pointer;
     transition: 0.4s;
@@ -11,7 +11,7 @@
 }
 
 .logoutBtn:hover {
-    color: #64B39B;
+    color: var(--accent);
     background-color: transparent;
 }
 

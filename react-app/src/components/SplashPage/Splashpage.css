@@ -26,13 +26,13 @@
 }
 
 .option div {
-    border: 2px solid white;
+    border: 2px solid var(--trimmings);
     padding: 15px;
     width: 400px;
     margin: 0px;
     height: 200px;
     display: flex;
-    box-shadow: -8px 8px 0 #64B39B;
+    box-shadow: -8px 8px 0 var(--accent);
     transition: transform 0.4s, box-shadow 0.4s;
     align-items: center;
     cursor: pointer;
@@ -50,7 +50,7 @@
 
 .option button {
     align-self: flex-end;
-    box-shadow: -8px 8px 0 #64B39B;
+    box-shadow: -8px 8px 0 var(--accent);
     transition: transform 0.4s, box-shadow 0.4s;
 
 }
@@ -63,5 +63,5 @@
 }
 
 .option button:hover {
-    background-color: white;
+    background-color: var(--trimmings);
 }

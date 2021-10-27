@@ -1,5 +1,5 @@
 .searchbar {
-    background-color: #1a1a1a;
+    background-color: var(--primary);
 }
 
 ul form {
@@ -11,5 +11,5 @@ ul form {
 }
 
 input::placeholder {
-    color: #64B39B;
+    color: var(--accent);
 }
