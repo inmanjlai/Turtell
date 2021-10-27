@@ -1,3 +1,3 @@
 brown = #6A4443
-green = #64B39B
+green = var(--accent)
 black = #6A4443
