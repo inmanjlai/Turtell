@@ -13,3 +13,16 @@ ul form {
 input::placeholder {
     color: var(--accent);
 }
+
+.search-results:hover {
+    background-color: var(--highlight);
+}
+
+.results-box {
+    opacity: 0;
+}
+
+.searchbar:focus-visible ~ .results-box {
+    opacity: 1;
+    pointer-events: auto;
+}
