@@ -8,7 +8,6 @@ import { NavLink } from "react-router-dom"
 const Searchbar = () => {
 
     const dispatch = useDispatch()
-    const history = useHistory()
     const [search, setSearch] = useState("")
 
     useEffect(() => {
@@ -17,11 +16,11 @@ const Searchbar = () => {
 
     const subreddits = useSelector((state) => state.subreddits.subreddits)
     const filtered = subreddits?.filter((subreddit) => subreddit?.name?.toLowerCase().startsWith(search))
-    console.log(filtered)
 
     const handleSubmit = (e) => {
         e.preventDefault()
 
+        console.log("WE ARE HITTING THE NAVLINK")
         // dispatch(searchForSubreddits(search))
         // history.push(`/subreddits/search/${search}`)
     }
@@ -37,7 +36,7 @@ const Searchbar = () => {
                 placeholder='Search for communities...'
              />
 
-             <div style={{position: "absolute", top: "calc(100% - 15px)", width: "100%", backgroundColor: "var(--primary)", zIndex:"10", maxHeight: "300px", border: "2px solid var(--trimmings)", borderTop:"1px solid var(--highlight)", overflowY: "scroll", display:"flex", flexDirection: "column"}} className='results-box'>
+             <div className='results-box'>
                  {filtered?.map((subreddit) => {
                      return (
                         <NavLink to={`/subreddits/${subreddit.id}`} className="search-results" style={{color: "var(--trimmings)", fontFamily:"Open Sans", padding:"10px", cursor:"pointer"}}> <span style={{color:"var(--accent)"}}> r/{subreddit.tag}</span> {subreddit.name}</NavLink>
