@@ -26,7 +26,10 @@ def get_comments():
 
 @comments_routes.route('/<int:comment_id>')
 def get_one_comment(comment_id):
+
+    print(CBLUEBG + "\n\n", comment_id, "\n\n" + CEND)
     comments = Comment.query.get(comment_id)
+    print(CBLUEBG + "\n\n", comments, "\n\n" + CEND)
     return comments.to_dict()
 
 # GETS ALL OF A USERS POSTS

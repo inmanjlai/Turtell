@@ -16,17 +16,21 @@ const EditForm = ({currentSubreddit}) => {
     useEffect(() => {
         const errors = []
         if(tag?.length > 50) errors.push("Please limit your tag name to a maximum of 50 characters.")
+        if((tag.length > 0) && (tag.trim().length <= 0)) errors.push("Please fill out the Subreddit Tag with a valid input")
+        if(tag.trim().includes(" ")) errors.push("Please remove spaces from the Subreddit Tag")
         if(name.length > 255) errors.push("Please limit your Subreddit name to a maximum of 255 characters")
+        if((name.length > 0) && (name.trim().length <= 0)) errors.push("Please fill out the Subreddit Name with a valid input")
         if(description.length > 255) errors.push("Please limit your Subreddit Description to a maximum of 255 characters")
+        if((description.length > 0) && (description.trim().length <= 0)) errors.push("Please fill out the Subreddit Description with a valid input")
         setErrors(errors)
     },[tag, name, description])
 
     const handleSubmit = (e) => {
         e.preventDefault()
         const editedSubreddit = {
-            name,
-            tag,
-            description
+            name: name.trim(),
+            tag: tag.trim(),
+            description: description.trim()
         }
         dispatch(editOneSubreddit(currentSubreddit.id, editedSubreddit))
         history.push("/")

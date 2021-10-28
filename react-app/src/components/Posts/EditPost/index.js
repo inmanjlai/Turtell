@@ -22,8 +22,8 @@ const EditPost = () => {
         const newPost = {
             user_id: user?.id,
             subreddit_id: currentSubreddit?.id,
-            title,
-            content
+            title: title.trim(),
+            content: content.trim()
         }
         dispatch(editPost(newPost, currentPost.id))
         history.push(`/subreddits/${currentSubreddit.id}`)
@@ -33,6 +33,7 @@ const EditPost = () => {
         const errors = []
         if(title?.length > 150) errors.push("Please limit your title to a maximum of 150 characters.")
         if(content?.length > 2000) errors.push("Please limit your post to a maximum of 2000 characters.")
+        if((content.length > 0) && (content.trim().length <= 0)) errors.push("Please fill out the Post Content with a valid input")
         setErrors(errors)
     },[content, title])
 

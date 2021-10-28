@@ -22,7 +22,7 @@ class Post(db.Model):
             'title': self.title,
             'content': self.content,
             'user': self.user.to_dict(),
-            'subreddit': self.subreddit.to_dict()
+            'subreddit': self.subreddit.to_dict(),
         }
 
 
