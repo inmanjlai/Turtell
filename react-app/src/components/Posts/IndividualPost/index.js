@@ -15,6 +15,7 @@ const IndividualPost = () => {
     const currentSubreddit = useSelector((state) => state.subreddits.currentSubreddit)
     const comments = useSelector((state) => state.comments)
     const allComments = Object.values(comments)
+    console.log(allComments)
     const currentPost = useSelector((state) => state.posts)
     const user = useSelector((state) => state.session.user)
 
@@ -46,7 +47,7 @@ const IndividualPost = () => {
         setIsOpen(false)
         setCommentContent("")
     }
-    
+
     return (
         <div className='pageContainer'>
             <div className='post-details'>

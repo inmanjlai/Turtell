@@ -76,6 +76,8 @@ def edit_comment(comment_id):
         db.session.commit()
 
         comments = Comment.query.filter(Comment.post_id == data['post_id']).all()
+        print(CGREEN + "\COMMENTS:", comments,"\n" + CEND)
+
         return {comment.id: comment.to_dict() for comment in comments}
     else:
         print(CREDBG + "\nERROR: BAD DATA\n" + CEND)

@@ -25,7 +25,7 @@ const EditComment = () => {
     useEffect(() => {
         const errors = []
         if(commentContent?.length > 2000) errors.push("Please limit your comment to a maximum of 2000 characters")
-        if((commentContent.length > 0) && (commentContent.trim().length <= 0)) errors.push("Please fill out the Comment Content with a valid input")
+        if((commentContent?.length > 0) && (commentContent.trim().length <= 0)) errors.push("Please fill out the Comment Content with a valid input")
         setErrors(errors)
     }, [commentContent])
 
