@@ -33,7 +33,7 @@ const EditForm = ({currentSubreddit}) => {
             description: description.trim()
         }
         dispatch(editOneSubreddit(currentSubreddit.id, editedSubreddit))
-        history.push("/")
+        history.push(`/subreddits/${currentSubreddit.id}`)
     }
 
     return ( 

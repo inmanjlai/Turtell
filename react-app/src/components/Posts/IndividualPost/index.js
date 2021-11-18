@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useHistory, useParams } from "react-router"
 import { deletePost, getOnePosts } from "../../../store/posts"
 import { createComment, getAllPostsComments } from "../../../store/comments"
+import { getOneSubreddit } from "../../../store/subreddits"
 import Comment from "../../Comment"
 import './IndividualPost.css'
 
@@ -15,7 +16,7 @@ const IndividualPost = () => {
     const currentSubreddit = useSelector((state) => state.subreddits.currentSubreddit)
     const comments = useSelector((state) => state.comments)
     const allComments = Object.values(comments)
-    console.log(allComments)
+    console.log("this is the posts id:", id)
     const currentPost = useSelector((state) => state.posts)
     const user = useSelector((state) => state.session.user)
 
@@ -23,9 +24,13 @@ const IndividualPost = () => {
     const [commentContent, setCommentContent] = useState("")
     const [errors, setErrors] = useState([])
 
+    console.log("THIS IS THE SUBREDDIT WE ARE AT", currentPost?.subreddit_id)
+    currentSubreddit && console.log(currentPost?.subreddit?.name)
+
     useEffect(() => {
         dispatch(getOnePosts(id))
         dispatch(getAllPostsComments(id))
+        dispatch(getOneSubreddit(currentPost.subreddit_id))  
     },[dispatch, id])
 
     useEffect(() => {
@@ -66,7 +71,7 @@ const IndividualPost = () => {
                     </div>
                 )}
                 <button onClick={() => isOpen ? setIsOpen(false) : setIsOpen(true)} className='post-username'>Comment</button>
-                <button>{currentPost?.user?.username}</button>
+                <button id="comment-user">{currentPost?.user?.username}</button>
             </div>
             {isOpen && <div className='create-comment'>
                 <form onSubmit={handleCreateComment}>

@@ -10,7 +10,6 @@ const EditPost = () => {
     const history = useHistory()
 
     const user = useSelector((state) => state.session.user)
-    const currentSubreddit = useSelector((state) => state.subreddits.currentSubreddit)
     const currentPost = useSelector((state) => state.posts)
     
     const [title, setTitle] = useState(currentPost.title)
@@ -21,12 +20,12 @@ const EditPost = () => {
         e.preventDefault()
         const newPost = {
             user_id: user?.id,
-            subreddit_id: currentSubreddit?.id,
+            subreddit_id: currentPost.subreddit_id,
             title: title.trim(),
             content: content.trim()
         }
         dispatch(editPost(newPost, currentPost.id))
-        history.push(`/subreddits/${currentSubreddit.id}`)
+        history.push(`/subreddits/${currentPost.subreddit_id}`)
     }
 
     useEffect(() => {

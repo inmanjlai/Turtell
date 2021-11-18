@@ -93,3 +93,15 @@ button {
     color: var(--primary)
 }
 
+#comment-user {
+    cursor: auto;
+}
+
+button:disabled {
+    background-color: grey;
+    cursor: not-allowed;
+}
+
+button:disabled:hover {
+    background-color: grey;
+}

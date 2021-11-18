@@ -23,7 +23,7 @@ const Comment = ({comment}) => {
                             <button className='deleteBtn' onClick={() => dispatch(deleteComment(currentPost?.id, comment?.id))}>Delete</button>
                         </>
                     }
-                    <button className='comment-user'>{comment?.user?.username}</button>
+                    <button id='comment-user'>{comment?.user?.username}</button>
                 </div>
         </div>
     )
