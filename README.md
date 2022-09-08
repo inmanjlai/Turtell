@@ -8,7 +8,7 @@
   <p align="center">
     A full stack clone of <a href="https://www.reddit.com/">reddit.com</a>
     <br />
-    <a href="https://inmanjlai-saidit.herokuapp.com/" target="_blank"><strong>Check it out »</strong></a>
+    <a href="https://inmanjlai-turtell.herokuapp.com/" target="_blank"><strong>Check it out »</strong></a>
     <br />
     <br />
   </p>
