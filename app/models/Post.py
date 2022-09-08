@@ -13,6 +13,7 @@ class Post(db.Model):
 
     subreddit = db.relationship("Subreddit", back_populates="posts")
     user = db.relationship("User", backref="posts")
+    comments = db.relationship("Comment", back_populates="post", cascade="all, delete-orphan")
 
     def to_dict(self):
         return {
