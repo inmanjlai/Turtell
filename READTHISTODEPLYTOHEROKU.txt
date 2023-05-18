@@ -1,0 +1,2 @@
+All you need to do is heroku container:push web -a inmanjlai-turtell
+make sure u are logged in with heroku login and heroku:container login
